@@ -11,7 +11,9 @@ def length_honeypot(form, field):
 def field_text(form, field):
     campo = field.data
     if campo.isdigit():
-        raise validators.ValidationError('El campo no puede ser numérico.')
+        raise validators.ValidationError(
+            'Zero - El campo no puede ser numérico.'
+            )
 
 
 def field_exist(form, field):
@@ -25,7 +27,7 @@ def field_exist(form, field):
             exist = 'True'
     if exist == 'False':
         raise validators.ValidationError(
-            'digite un número valido (One, TwentyOne)'
+            'Zero - digite un número valido'
             )
 
 

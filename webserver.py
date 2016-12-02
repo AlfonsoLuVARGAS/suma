@@ -24,6 +24,8 @@ def index():
         pos = 0
         for num in numbers:
             num = num.lower()
+            fi = fi.lower()
+            se = se.lower()
             if num == fi:
                 pos_fi = pos
                 print(pos)
