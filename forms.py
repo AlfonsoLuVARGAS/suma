@@ -1,8 +1,11 @@
 """forms.py file."""
-from wtforms import Form
-from wtforms import StringField
+from wtforms import Form, StringField, validators
 
 
 class sumaForm(Form):
-    first_name = StringField('Text number one')
-    last_name = StringField('Text number two')
+    first_number = StringField('Text number one', [
+        validators.Required(message='Número es requerido!')
+    ])
+    second_number = StringField('Text number two', [
+        validators.Required(message='Número es requerido!')
+    ])

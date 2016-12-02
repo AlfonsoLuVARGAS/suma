@@ -1,5 +1,5 @@
 """prueba de programación UNACIONAL."""
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_wtf.csrf import CsrfProtect
 
 import forms
@@ -11,10 +11,12 @@ app.config.from_object('config.DevelopmentConfig')
 csrf = CsrfProtect()
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    """Envia formulario por metodo get"""
-    suma_form = forms.sumaForm()
+    """Envia formulario por metodo get valida en post."""
+    suma_form = forms.sumaForm(request.form)
+    if request.method == 'POST' and suma_form.validate():
+        print(suma_form.second_number.data)
     return render_template('index.html', form=suma_form)
 
 
