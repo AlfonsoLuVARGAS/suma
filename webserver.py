@@ -17,6 +17,9 @@ def index():
     suma_form = forms.sumaForm(request.form)
     if request.method == 'POST' and suma_form.validate():
         print(suma_form.second_number.data)
+        print(suma_form.first_number.data)
+    else:
+        print("Error en formulario")
     return render_template('index.html', form=suma_form)
 
 
