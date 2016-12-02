@@ -43,4 +43,4 @@ def index():
 if __name__ == '__main__':
     if __name__ == '__main__':
         csrf.init_app(app)
-        app.run(debug=True, port=8000)
+        app.run(port=8000)
